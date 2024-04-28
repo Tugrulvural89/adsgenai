@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+
+{% block title %}  <title>Free Ad Copy Text Generator | Elevate Your Advertising Efforts</title> {% endblock title %}
+{% block meta_title %}  <meta name="title" content="Boost Your Ads with Our Free Ad Copy Text Generator | adsgenai.com"> {% endblock meta_title %}
+ {% block meta_description %}  <meta name="description" content="Boost your advertising with our free ad
+ copy generator, designed to help you create effective and compelling advertisements quickly and easily.
+ Ideal for marketers on a budget."> {% endblock meta_description %}
+
+
+
+{% block content %}
+
+    <style>
+
+    ul {
+  list-style-type: none; /* Listeden noktaları kaldırır */
+}
+
+ol {
+  list-style-type: none; /* Listeden numaraları kaldırır */
+}
+#loader {
+    display: none;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background-image: url({% static 'loader.gif' %});
+    background-size: cover;
+    transform: translate(-50%, -50%);
+  }
+
+    </style>
+    <style>.d-none {display: none!important;}</style>
+    <div id="loader">
+        <!--<img src="{% static 'loader.gif' %}" alt="Loading..." />-->
+    </div>
+<div class="container">
+     <div class="my-5">
+        <h1 class="text-center mb-2">AdGenie: Free Ad Copy Text Generator</h1>
+        <p class="text-center mb-2 text-muted">Effortlessly Create Compelling Ad Copy in Seconds</p>
+          <form id="inputForm" method="post">
+              {% csrf_token %}
+<label for="id_user_description" class="form-label">Business Type</label>
+         {% bootstrap_field form.user_description show_label=False placeholder='Describe your business, including the main products or services you offer, your target market, and what sets you apart from competitors.'%}
+<label for="id_ad_product" class="form-label">Advertising Platform</label>
+         {% bootstrap_field form.ad_product show_label=False %}
+              {% bootstrap_button "Run" button_type="submit" button_class="btn-primary"  %}
+              </form>
+    </div>
+</div>
+    <div class="container">
+
+    <div class="mx-auto text-center mt-5 mb-5">
+        <h3 class="h3 text-center" id="ad-title" style="display: none;">Your Generated Ad Copy: Ready to Boost Engagement</h3>
+         <div id="response"></div>
+    </div>
+    </div>
+
+
+        <div class="container">
+    <div class="row mb-4 mt-4">
+        <div class="col text-center">
+            <h1 class="h2">Maximizing Impact: The Critical Role of Ad Titles in Digital Advertising</h1>
+        </div>
+    </div>
+    <!-- Metin ve Görsel İçeren Flex Container -->
+    <div class="row mb-4 mt-4">
+        <div class="col-md-6  align-items-center">
+
+        <p>An effective ad title acts as the gateway to your business, enticing users to click through and engage further with your brand. Here’s why ad titles are crucial and how they can significantly impact your advertising efforts.</p>
+
+        <h2 class="mt-4 mb-2">The Importance of Ad Titles</h2>
+        <ul>
+            <li><strong>First Impressions Matter</strong>: Ad titles are often the first interaction potential customers have with your brand.</li>
+            <li><strong>Clarity and Relevance</strong>: A clear and relevant title helps the audience immediately understand what your ad is about.</li>
+            <li><strong>Boosts Click-Through Rates (CTR)</strong>: A well-formulated ad title can significantly boost the CTR of your campaigns.</li>
+            <li><strong>SEO Benefits</strong>: Utilizing keywords effectively within your ad titles can improve the visibility of your ads on search engines.</li>
+        </ul>
+
+        <h2 class="mt-4 mb-2">Crafting Effective Ad Titles</h2>
+        <ul>
+            <li><strong>Keep It Short and Sweet</strong>: Adherence to character limits is crucial for clarity and impact.</li>
+            <li><strong>Use Strong Call-to-Action (CTA)</strong>: Incorporate action-oriented language like "Buy Now" or "Learn More".</li>
+            <li><strong>Highlight Unique Value Propositions</strong>: Convey what sets your product or service apart from competitors.</li>
+            <li><strong>Test and Optimize</strong>: Regular testing and optimization of your ad titles are necessary to find what works best.</li>
+        </ul>
+
+        <p class="mt-4">In digital marketing, ad titles are not just a form of creative expression but a strategic tool that can determine the success of your advertising campaigns. By crafting titles that are compelling, clear, and optimized for SEO, businesses can significantly enhance the effectiveness of their digital ads.</p>
+
+
+        <p>Understanding and leveraging the power of ad titles in advertising campaigns is an essential skill for marketers aiming to capture and retain the attention of their target audience in a crowded digital landscape.</p>
+
+
+        </div>
+        <div class="col-md-6 d-flex justify-content-center">
+            <img src="{% static '1.png' %}" alt="image reducer free online" class="img-fluid">
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col text-center">
+            <h1 class="h2">Mastering Ad Copy: Essential Tips for Effective Advertising Text</h1>
+        </div>
+    </div>
+    <!-- Metin ve Görsel İçeren Flex Container -->
+    <div class="row">
+        <div class="col-md-6 d-flex justify-content-center">
+            <img src="{% static '2.png' %}" alt="ad copy generator free" class="img-fluid blog-img">
+        </div>
+        <div class="col-md-6  align-items-center">
+                 <h1 class="mb-4"></h1>
+        <p>Creating effective ad text is crucial for catching the attention of your audience and compelling them to take action. Here are some essential tips to help you craft compelling advertisements.</p>
+
+        <h2 class="mt-4 mb-3">Understand Your Audience</h2>
+        <p>Know who you are writing for to tailor your message effectively, increasing relevance and engagement.</p>
+
+        <h2 class="mt-4 mb-3">Keep It Clear and Concise</h2>
+        <p>Your message should be simple and direct, conveying your message quickly and effectively within character limits.</p>
+
+        <h2 class="mt-4 mb-3">Highlight Benefits, Not Features</h2>
+        <p>Explain the benefits of your product or service to show how it can make a difference in your customers' lives.</p>
+
+        <h2 class="mt-4 mb-3">Use Emotional Triggers</h2>
+        <p>Tap into emotions like urgency, happiness, or security to motivate consumers to act immediately.</p>
+
+        <h2 class="mt-4 mb-3">Include a Strong Call to Action</h2>
+        <p>Ensure your CTA is clear and placed prominently within your ad to tell the audience exactly what to do next.</p>
+
+        <h2 class="mt-4 mb-3">Test and Refine</h2>
+        <p>Use A/B testing to compare different aspects of your ads and refine based on performance.</p>
+
+        <h2 class="mt-4 mb-3">Use SEO Strategically</h2>
+        <p>Incorporate relevant keywords to help your ad gain better visibility on search engines.</p>
+
+        <h2 class="mt-4 mb-3">Example Ad Copy</h2>
+        <ul>
+            <li><strong>Headline:</strong> Unlock Endless Entertainment</li>
+            <li><strong>Body:</strong> Experience crystal-clear audio with our latest wireless headphones. Enjoy music and calls all day without pausing to recharge.</li>
+            <li><strong>CTA:</strong> Shop Now – Free Shipping for a Limited Time!</li>
+        </ul>
+
+        <p class="mt-4">Writing effective ad copy is a blend of art and science. By following these tips, you can create ad texts that not only capture attention but also drive conversions.</p>
+
+
+            <p>Continual testing and refinement are key to mastering the art of ad copywriting, leading to better engagement and increased sales.</p>
+
+           </div>
+
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block javascript %}
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#inputForm').on('submit', function(e) {
+            e.preventDefault();  // Formun normal submit işlemini engelle
+             $('#loader').show(); // Show the loader animation
+                var $btn = $(this).find('.btn-primary');
+                $btn.prop('disabled', true); // Butonu devre dışı bırak
+                const userInput = $('#id_user_description').val();
+                // CSRF Token ayarlama
+                    var adProduct = $('#id_ad_product').val(); // Assuming you have an input for this
+                    var csrftoken = $('[name=csrfmiddlewaretoken]').val();
+                    console.log(userInput, adProduct, csrftoken);
+                $.ajaxSetup({
+                    beforeSend: function(xhr, settings) {
+                        if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+                            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                        }
+                    }
+                });
+            $.ajax({
+                url: '',  // Django URL'ınız
+                type: 'POST',
+                data:{
+                        'user_description': userInput,
+                        'ad_product': adProduct, // Ensure all required fields are included
+                        'csrfmiddlewaretoken': csrftoken // CSRF token must be included
+                    },
+                success: function(response) {
+                    $('#response').html(response.message);
+                    $('#loader').hide();// Yanıtı sayfada göster
+                    $btn.prop('disabled', false); // Butonu tekrar etkinleştir
+                   $('#ad-title').css('display', 'block');
+                },
+                        error: function(xhr, status, error) {
+                        console.error("Error: " + xhr.responseText);
+                        $btn.prop('disabled', false); // Butonu tekrar etkinleştir
+                        $('#loader').hide();
+                    }
+            });
+        });
+    });
+    </script>
+
+{% endblock javascript %}
