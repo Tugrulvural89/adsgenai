@@ -100,6 +100,6 @@ def robots_txt(request):
         "User-Agent: *",
         "Disallow: /admin/",
         "Allow: /",
-        "Sitemap: https://www.reduceimagesizer.com/sitemap.xml"
+        "Sitemap: https://www.adsgenai.com/sitemap.xml"
     ]
     return HttpResponse("\n".join(lines), content_type="text/plain")
