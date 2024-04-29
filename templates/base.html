@@ -140,9 +140,10 @@
 .resize-option input[type="radio"]:checked + label img {
   border-color: #214391; /* Highlight color for selected option */
 }
- .blog-img {
-     height: 700px;
- }
+
+@media only screen and (min-width: 700px) {
+  .blog-img { height: 700px; }
+}
     </style>
     <!-- Öncelikle kilit ikonlarınızı yükleyin -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
