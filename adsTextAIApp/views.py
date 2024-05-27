@@ -20,18 +20,21 @@ def index(request):
                 # inquiry.user_description = ''
                 # inquiry.ad_product = ''
                 inquiry.save()
-                user_description = 'sdasdadsasdasd'
-                print('Success')
-                print(request.headers)
-                print(request.POST.dict()['ad_product'])
                 # OpenAI ChatGPT ile iletişim kur
                 api_key = config('API_KEY_AI')
                 # new
 
                 # Define the system prompt that includes the rules for each advertising platform
                 system_prompt = config('PROMPT')
-                print(api_key,system_prompt )
-                prompt = config('PROMPT_SEC')
+                assistant_prompt = config('PROMPT_SEC')
+                assistant_warning = config('PROMPT_WARNING')
+                xaccount = config('XACCOUNT')
+                gaccount = config('GACCOUNT')
+                taccount = config('TACCOUNT')
+                faccount = config('FACCOUNT')
+                system_rule = config('PROMPT_RULE')
+
+
                 client = OpenAI(
 
                     api_key=api_key,  # this is also the default, it can be omitted
@@ -40,11 +43,18 @@ def index(request):
                 user_description = request.POST.get('user_description')
                 ad_product = request.POST.get('ad_product')
                 chat_completion = client.chat.completions.create(
-                    model="gpt-3.5-turbo-0125",
+                    model="gpt-4o",
                     max_tokens=2000,
                     messages=[{"role": "system", "content": system_prompt},
-                              {"role": "user", "content": "Business description: {0}".format(user_description)},
-                              {'role': 'system', "content": prompt},
+                              {"role": "assistant", "content": assistant_prompt},
+                              {"role": "assistant", "content": assistant_warning},
+                              {"role": "assistant", "content": xaccount},
+                              {"role": "assistant", "content": gaccount},
+                              {"role": "assistant", "content": taccount},
+                              {"role": "assistant", "content": faccount},
+                              {"role": "assistant", "content": system_rule},
+                              {"role": "user", "content": user_description},
+                              {'role': 'user', "content": 'only write this ad copy for :' + ad_product + 'platform'},
                              ]
                 )
 
